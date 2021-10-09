@@ -38,6 +38,7 @@
         "typography-theme-wordpress-2016": "^0.16.19"
     },
     "devDependencies": {
+        "gatsby-plugin-webpack-bundle-analyser-v2": "^1.1.25",
         "prettier": "2.0.5"
     },
     "homepage": "https://github.com/jacobra19/yakov.dev#readme",
