@@ -47,7 +47,7 @@
         "gatsby-starter-blog",
         "blog"
     ],
-    "license": "0BSD",
+    "license": "MIT",
     "main": "n/a",
     "repository": {
         "type": "git",
