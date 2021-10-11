@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'gatsby';
 
-import { rhythm, scale } from '../utils/typography';
+import { rhythm } from '../utils/typography';
 
 const Header = ({ isRoot, title }) => {
     const styles = (s) => {
@@ -26,7 +26,6 @@ const Header = ({ isRoot, title }) => {
                 justifyContent: 'space-between',
             },
             rootTitle: {
-                // ...scale(1.5),
                 marginBottom: rhythm(1.5),
                 margin: '15px 0px',
                 fontFamily: 'Comfortaa, cursive',
@@ -60,16 +59,6 @@ const Header = ({ isRoot, title }) => {
         );
     };
 
-    const renderDenseHeader = () => {
-        return (
-            <h3 style={styles('denseTitle')}>
-                <Link style={styles('link')} to={`/`}>
-                    {title}
-                </Link>
-            </h3>
-        );
-    };
-
     const renderMenu = () => {
         return (
             <nav style={{ display: 'flex', alignItems: 'center' }}>
@@ -96,7 +85,6 @@ const Header = ({ isRoot, title }) => {
     return (
         <header style={styles('root')}>
             <div style={styles('container')}>
-                {/* {isRoot ? renderRootHeader() : renderDenseHeader() } */}
                 {renderRootHeader()}
                 {renderMenu()}
             </div>
