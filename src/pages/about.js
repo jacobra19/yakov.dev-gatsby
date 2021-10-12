@@ -27,6 +27,11 @@ const AboutMe = ({ location }) => {
                     description
                     title
                     id
+                    links {
+                        github
+                        liveURL
+                        npm
+                    }
                 }
             }
             site {
@@ -170,7 +175,7 @@ const AboutMe = ({ location }) => {
                 {renderHeader('About Me')}
                 {renderContent()}
             </article> */}
-            {renderSocialLinks()}
+            {/* {renderSocialLinks()} */}
             <article style={styles('articleCont')}>
                 {renderHeader('Projects')}
                 {renderProjects()}
