@@ -10,6 +10,8 @@ import TwitterIcon from '../svgs/twitter.inline.svg';
 import Layout from '../components/layout';
 import SEO from '../components/seo';
 
+import ProjectCard from '../components/ProjectCard';
+
 const AboutMe = ({ location }) => {
     const data = useStaticQuery(graphql`
         query AboutQuery {
@@ -20,10 +22,16 @@ const AboutMe = ({ location }) => {
                     }
                 }
             }
+            allProject {
+                nodes {
+                    description
+                    title
+                    id
+                }
+            }
             site {
                 siteMetadata {
                     title
-
                     author {
                         name
                         summary
@@ -40,13 +48,8 @@ const AboutMe = ({ location }) => {
     `);
 
     const { author, title } = data.site.siteMetadata;
-    const {
-        twitter,
-        github,
-        linkedin,
-        instagram,
-    } = data.site.siteMetadata.social;
-
+    const { twitter, github, linkedin, instagram } =
+        data.site.siteMetadata.social;
     const styles = (s) => {
         const styles = {
             root: {},
@@ -88,20 +91,10 @@ const AboutMe = ({ location }) => {
         return styles[s];
     };
 
-    const renderHeader = () => {
+    const renderHeader = (title) => {
         return (
             <header style={styles('header')}>
-                <h1 style={styles('h1Text')}>About Me</h1>
-                {/* <Image
-                    fixed={data.avatar.childImageSharp.fixed}
-                    alt={author.name}
-                    style={{
-                        borderRadius: `100%`,
-                    }}
-                    imgStyle={{
-                        borderRadius: `50%`,
-                    }}
-                /> */}
+                <h1 style={styles('h1Text')}>{title}</h1>
             </header>
         );
     };
@@ -157,14 +150,31 @@ const AboutMe = ({ location }) => {
         );
     };
 
+    const renderProjects = () => {
+        console.log(`data.allProject`, data.allProject);
+        return (
+            <section
+                style={{ display: 'flex', flexDirection: 'column', gap: 10 }}
+            >
+                {data.allProject.nodes.map((node) => {
+                    return <ProjectCard key={node.id} {...node} />;
+                })}
+            </section>
+        );
+    };
+
     return (
         <Layout location={location} title={title}>
             <SEO title="about" />
-            <article style={styles('articleCont')}>
-                {renderHeader()}
+            {/* <article style={styles('articleCont')}>
+                {renderHeader('About Me')}
                 {renderContent()}
-            </article>
+            </article> */}
             {renderSocialLinks()}
+            <article style={styles('articleCont')}>
+                {renderHeader('Projects')}
+                {renderProjects()}
+            </article>
         </Layout>
     );
 };
