@@ -1,18 +1,25 @@
 [
     {
-        "title": "Project 1",
-        "description": "This is the first project"
+        "title": "yakov.dev",
+        "description": "My personal website, built with <a href={https://www.gatsbyjs.com/}>gatsby</a>",
+        "github": "https://github.com/jacobra19/yakov.dev",
+        "liveURL": "https://yakov.dev"
     },
     {
-        "title": "Project 2",
-        "description": "This is the second project"
+        "title": "jsiq-cli (JS interview questions node cli)",
+        "description": "An interactive NodeJS CLI for exercising JavaScript interview questions in the terminal",
+        "github": "https://github.com/jacobra19/jsiq-cli",
+        "npm": "https://www.npmjs.com/package/jsiq-cli"
     },
     {
-        "title": "Project 3",
-        "description": "This is the third project"
+        "title": "nba-daily",
+        "description": "node cli for getting daily nba stats and scores",
+        "github": "https://github.com/jacobra19/nba-daily",
+        "npm": "https://www.npmjs.com/package/nba-daily"
     },
     {
-        "title": "Project 4",
-        "description": "This is the fourth project"
+        "title": "Boaz",
+        "description": "Chrome extension that fetches external libraries and assigning them to the window object",
+        "github": "https://github.com/jacobra19/boaz"
     }
 ]
