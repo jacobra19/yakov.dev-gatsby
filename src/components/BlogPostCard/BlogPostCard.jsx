@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'gatsby';
-import { rhythm } from '../utils/typography';
+import { rhythm } from '../../utils/typography';
 
 const BlogPostCard = ({ node }) => {
     const title = node.frontmatter.title || node.fields.slug;

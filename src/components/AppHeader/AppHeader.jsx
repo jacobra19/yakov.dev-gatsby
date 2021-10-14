@@ -1,9 +1,9 @@
 import React from 'react';
 import { Link } from 'gatsby';
 
-import { rhythm } from '../utils/typography';
+import { rhythm } from '../../utils/typography';
 
-const Header = ({ isRoot, title }) => {
+const AppHeader = ({ isRoot, title }) => {
     const styles = (s) => {
         const styles = {
             root: {
@@ -108,4 +108,4 @@ const Header = ({ isRoot, title }) => {
     );
 };
 
-export default Header;
+export default AppHeader;
