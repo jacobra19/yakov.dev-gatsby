@@ -61,7 +61,23 @@ const Header = ({ isRoot, title }) => {
 
     const renderMenu = () => {
         return (
-            <nav style={{ display: 'flex', alignItems: 'center' }}>
+            <nav style={{ display: 'flex', alignItems: 'center', gap:20 }}>
+                <h2
+                    style={{
+                        margin: 0,
+                        fontFamily: 'Comfortaa, cursive',
+                        textTransform: 'lowercase',
+                        fontSize: 24,
+                    }}
+                >
+                    <Link
+                        style={styles('link')}
+                        to={`/projects`}
+                        activeStyle={{ color: '#a002bd' }}
+                    >
+                        projects
+                    </Link>
+                </h2>
                 <h2
                     style={{
                         margin: 0,
