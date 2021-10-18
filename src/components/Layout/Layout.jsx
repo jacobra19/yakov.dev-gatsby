@@ -1,8 +1,8 @@
 import React from 'react';
 
-import { rhythm } from '../utils/typography';
+import { rhythm } from '../../utils/typography';
 
-import Header from './header';
+import { AppHeader } from '@components';
 
 const Layout = ({ location, title, children }) => {
     const rootPath = `${__PATH_PREFIX__}/`;
@@ -19,7 +19,7 @@ const Layout = ({ location, title, children }) => {
                 }
             }
         >
-            <Header isRoot={isRoot} title={title} />
+            <AppHeader isRoot={isRoot} title={title} />
             <main
                 style={{
                     marginLeft: `auto`,

@@ -1,6 +1,26 @@
 const path = require(`path`);
 const { createFilePath } = require(`gatsby-source-filesystem`);
 
+const projects = require('./src/data/projects.json');
+
+exports.sourceNodes = ({ actions, createNodeId, createContentDigest }) => {
+    const { createNode } = actions;
+
+    projects.forEach(project => {
+        createNode({
+            ...project,
+            id: createNodeId(`project-${project.title}`),
+            parent: null,
+            children: [],
+            internal: {
+                type: `Project`,
+                content: JSON.stringify(project),
+                contentDigest: createContentDigest(project),
+            },
+        })
+    })
+};
+
 exports.createPages = async ({ graphql, actions }) => {
     const { createPage } = actions;
 
@@ -62,4 +82,14 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
             value,
         });
     }
+};
+
+exports.onCreateWebpackConfig = ({ actions }) => {
+  actions.setWebpackConfig({
+    resolve: {
+      alias: {
+        "@components": path.resolve(__dirname, "src/components")
+      }
+    }
+  });
 };

@@ -1,0 +1,33 @@
+[
+    {
+        "title": "yakov.dev",
+        "description": "My personal website, built with <a href={https://www.gatsbyjs.com/}>gatsby</a>",
+        "links": {
+            "github": "https://github.com/jacobra19/yakov.dev",
+            "liveURL": "https://yakov.dev"
+        }
+    },
+    {
+        "title": "jsiq-cli (JS interview questions node cli)",
+        "description": "An interactive NodeJS CLI for exercising JavaScript interview questions in the terminal",
+        "links": {
+            "github": "https://github.com/jacobra19/jsiq-cli",
+            "npm": "https://www.npmjs.com/package/jsiq-cli"
+        }
+    },
+    {
+        "title": "nba-daily",
+        "description": "node cli for getting daily nba stats and scores",
+        "links": {
+            "github": "https://github.com/jacobra19/nba-daily",
+            "npm": "https://www.npmjs.com/package/nba-daily"
+        }
+    },
+    {
+        "title": "Boaz",
+        "description": "Chrome extension that fetches external libraries and assigning them to the window object",
+        "links": {
+            "github": "https://github.com/jacobra19/boaz"
+        }
+    }
+]

@@ -1,9 +1,9 @@
 import React from 'react';
 import { Link } from 'gatsby';
 
-import { rhythm, scale } from '../utils/typography';
+import { rhythm } from '../../utils/typography';
 
-const Header = ({ isRoot, title }) => {
+const AppHeader = ({ isRoot, title }) => {
     const styles = (s) => {
         const styles = {
             root: {
@@ -26,7 +26,6 @@ const Header = ({ isRoot, title }) => {
                 justifyContent: 'space-between',
             },
             rootTitle: {
-                // ...scale(1.5),
                 marginBottom: rhythm(1.5),
                 margin: '15px 0px',
                 fontFamily: 'Comfortaa, cursive',
@@ -60,19 +59,25 @@ const Header = ({ isRoot, title }) => {
         );
     };
 
-    const renderDenseHeader = () => {
-        return (
-            <h3 style={styles('denseTitle')}>
-                <Link style={styles('link')} to={`/`}>
-                    {title}
-                </Link>
-            </h3>
-        );
-    };
-
     const renderMenu = () => {
         return (
-            <nav style={{ display: 'flex', alignItems: 'center' }}>
+            <nav style={{ display: 'flex', alignItems: 'center', gap:20 }}>
+                <h2
+                    style={{
+                        margin: 0,
+                        fontFamily: 'Comfortaa, cursive',
+                        textTransform: 'lowercase',
+                        fontSize: 24,
+                    }}
+                >
+                    <Link
+                        style={styles('link')}
+                        to={`/projects`}
+                        activeStyle={{ color: '#a002bd' }}
+                    >
+                        projects
+                    </Link>
+                </h2>
                 <h2
                     style={{
                         margin: 0,
@@ -96,7 +101,6 @@ const Header = ({ isRoot, title }) => {
     return (
         <header style={styles('root')}>
             <div style={styles('container')}>
-                {/* {isRoot ? renderRootHeader() : renderDenseHeader() } */}
                 {renderRootHeader()}
                 {renderMenu()}
             </div>
@@ -104,4 +108,4 @@ const Header = ({ isRoot, title }) => {
     );
 };
 
-export default Header;
+export default AppHeader;
