@@ -6,7 +6,7 @@ const projects = require('./src/data/projects.json');
 exports.sourceNodes = ({ actions, createNodeId, createContentDigest }) => {
     const { createNode } = actions;
 
-    projects.forEach(project => {
+    projects.forEach((project) => {
         createNode({
             ...project,
             id: createNodeId(`project-${project.title}`),
@@ -17,8 +17,8 @@ exports.sourceNodes = ({ actions, createNodeId, createContentDigest }) => {
                 content: JSON.stringify(project),
                 contentDigest: createContentDigest(project),
             },
-        })
-    })
+        });
+    });
 };
 
 exports.createPages = async ({ graphql, actions }) => {
@@ -85,11 +85,11 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
 };
 
 exports.onCreateWebpackConfig = ({ actions }) => {
-  actions.setWebpackConfig({
-    resolve: {
-      alias: {
-        "@components": path.resolve(__dirname, "src/components")
-      }
-    }
-  });
+    actions.setWebpackConfig({
+        resolve: {
+            alias: {
+                '@components': path.resolve(__dirname, 'src/components'),
+            },
+        },
+    });
 };

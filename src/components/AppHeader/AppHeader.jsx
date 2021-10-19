@@ -1,9 +1,16 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'gatsby';
+import { useBreakpoint } from 'gatsby-plugin-breakpoints';
 
 import { rhythm } from '../../utils/typography';
 
 const AppHeader = ({ isRoot, title }) => {
+    const breakpoints = useBreakpoint();
+    const isMobile = breakpoints.sm || breakpoints.xs;
+
+    useEffect(() => {
+        console.log('breakpoints :>> ', breakpoints);
+    }, [breakpoints])
     const styles = (s) => {
         const styles = {
             root: {
@@ -47,11 +54,11 @@ const AppHeader = ({ isRoot, title }) => {
 
     const renderRootHeader = () => {
         return (
-            <h1 style={styles('rootTitle')}>
+            <h1 style={{ ...styles('rootTitle'), fontSize: isMobile ? '1.7rem' : '2.5rem' }}>
                 <Link
                     style={styles('link')}
                     to={`/`}
-                    // activeStyle={{ color: '#a002bd' }}
+                // activeStyle={{ color: '#a002bd' }}
                 >
                     {title}
                 </Link>
@@ -61,13 +68,13 @@ const AppHeader = ({ isRoot, title }) => {
 
     const renderMenu = () => {
         return (
-            <nav style={{ display: 'flex', alignItems: 'center', gap:20 }}>
+            <nav style={{ display: 'flex', alignItems: 'center', gap: 20 }}>
                 <h2
                     style={{
                         margin: 0,
                         fontFamily: 'Comfortaa, cursive',
                         textTransform: 'lowercase',
-                        fontSize: 24,
+                        fontSize: isMobile ? 18 : 24,
                     }}
                 >
                     <Link
@@ -83,7 +90,7 @@ const AppHeader = ({ isRoot, title }) => {
                         margin: 0,
                         fontFamily: 'Comfortaa, cursive',
                         textTransform: 'lowercase',
-                        fontSize: 24,
+                        fontSize: isMobile ? 18 : 24,
                     }}
                 >
                     <Link
