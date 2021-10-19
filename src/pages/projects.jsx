@@ -23,6 +23,7 @@ const Projects = ({ location }) => {
                         liveURL
                         npm
                     }
+                    tags
                 }
             }
             site {
@@ -74,7 +75,7 @@ const Projects = ({ location }) => {
         console.log(`data.allProject`, data.allProject);
         return (
             <section
-                style={{ display: 'flex', flexDirection: 'column', gap: 10 }}
+                style={{ display: 'flex', flexDirection: 'column', gap: 16 }}
             >
                 {data.allProject.nodes.map((node) => {
                     return <ProjectCard key={node.id} {...node} />;

@@ -4,6 +4,7 @@ import BlogPostCard from './BlogPostCard/BlogPostCard'
 import Layout from './Layout/Layout'
 import ProjectCard from './ProjectCard/ProjectCard'
 import SEO from './SEO/SEO'
+import Tags from './Tags/Tags'
 
 export {
     AppHeader,
@@ -12,4 +13,5 @@ export {
     Layout,
     ProjectCard,
     SEO,
+    Tags
 }

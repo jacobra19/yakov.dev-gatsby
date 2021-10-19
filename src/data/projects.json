@@ -5,7 +5,12 @@
         "links": {
             "github": "https://github.com/jacobra19/yakov.dev",
             "liveURL": "https://yakov.dev"
-        }
+        },
+        "tags": [
+            "gatsby",
+            "react",
+            "graphql"
+        ]
     },
     {
         "title": "jsiq-cli (JS interview questions node cli)",
@@ -13,7 +18,11 @@
         "links": {
             "github": "https://github.com/jacobra19/jsiq-cli",
             "npm": "https://www.npmjs.com/package/jsiq-cli"
-        }
+        },
+        "tags": [
+            "nodejs",
+            "cli"
+        ]
     },
     {
         "title": "nba-daily",
@@ -21,13 +30,21 @@
         "links": {
             "github": "https://github.com/jacobra19/nba-daily",
             "npm": "https://www.npmjs.com/package/nba-daily"
-        }
+        },
+        "tags": [
+            "nodejs",
+            "cli"
+        ]
     },
     {
         "title": "Boaz",
         "description": "Chrome extension that fetches external libraries and assigning them to the window object",
         "links": {
             "github": "https://github.com/jacobra19/boaz"
-        }
+        },
+        "tags": [
+            "chrome-ext",
+            "material-ui"
+        ]
     }
 ]

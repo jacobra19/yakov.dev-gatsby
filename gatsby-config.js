@@ -16,6 +16,7 @@ module.exports = {
         },
     },
     plugins: [
+        'gatsby-plugin-breakpoints',
         'gatsby-plugin-webpack-bundle-analyser-v2',
         `gatsby-transformer-sharp`,
         `gatsby-plugin-sharp`,
