@@ -8,7 +8,6 @@ import { FaGithubSquare } from "@react-icons/all-files/fa/FaGithubSquare";
 import { Tags } from '@components';
 
 const ProjectCard = (project) => {
-    console.log('project :>> ', project);
     const { title, description, id, links, tags } = project;
     const renderLink = (link, Icon, label) => {
 
@@ -34,7 +33,6 @@ const ProjectCard = (project) => {
     }
 
     const renderLinks = (links) => {
-        console.log('links :>> ', links);
         const { npm, github, liveURL } = links;
         return (
             <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>

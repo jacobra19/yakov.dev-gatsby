@@ -8,9 +8,9 @@ const AppHeader = ({ isRoot, title }) => {
     const breakpoints = useBreakpoint();
     const isMobile = breakpoints.sm || breakpoints.xs;
 
-    useEffect(() => {
-        console.log('breakpoints :>> ', breakpoints);
-    }, [breakpoints])
+    // useEffect(() => {
+    //     console.log('breakpoints :>> ', breakpoints);
+    // }, [breakpoints])
     const styles = (s) => {
         const styles = {
             root: {

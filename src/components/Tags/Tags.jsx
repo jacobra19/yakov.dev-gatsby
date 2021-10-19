@@ -40,7 +40,6 @@ const tagsMap = {
 
 
 const Tag = ({ tag }) => {
-    console.log('tag :>> ', tag);
     const Comp = tagsMap[tag]['icon'];
     const label = tagsMap[tag]['label'];
     if (!Comp) return null;

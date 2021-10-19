@@ -72,7 +72,6 @@ const Projects = ({ location }) => {
     };
 
     const renderProjects = () => {
-        console.log(`data.allProject`, data.allProject);
         return (
             <section
                 style={{ display: 'flex', flexDirection: 'column', gap: 16 }}
