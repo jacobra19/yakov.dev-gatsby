@@ -6,13 +6,6 @@ import { Layout, SEO, ProjectCard } from '@components';
 const Projects = ({ location }) => {
     const data = useStaticQuery(graphql`
         query ProjectsQuery {
-            avatar: file(absolutePath: { regex: "/profile-pic.jpg/" }) {
-                childImageSharp {
-                    fixed(width: 80, height: 80, quality: 100) {
-                        ...GatsbyImageSharpFixed
-                    }
-                }
-            }
             allProject {
                 nodes {
                     description

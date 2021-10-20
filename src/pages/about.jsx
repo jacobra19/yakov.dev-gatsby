@@ -1,23 +1,16 @@
 import React from 'react';
 import { useStaticQuery, graphql, Link } from 'gatsby';
-import Image from 'gatsby-image';
-import { FaGithub } from '@react-icons/all-files/fa/FaGithub'
-import { FaTwitter } from '@react-icons/all-files/fa/FaTwitter'
-import { FaLinkedin } from '@react-icons/all-files/fa/FaLinkedin'
-import { FaInstagram } from '@react-icons/all-files/fa/FaInstagram'
+import { StaticImage } from 'gatsby-plugin-image';
+import { FaGithub } from '@react-icons/all-files/fa/FaGithub';
+import { FaTwitter } from '@react-icons/all-files/fa/FaTwitter';
+import { FaLinkedin } from '@react-icons/all-files/fa/FaLinkedin';
+import { FaInstagram } from '@react-icons/all-files/fa/FaInstagram';
 
 import { Layout, SEO } from '@components';
 
 const AboutMe = ({ location }) => {
     const data = useStaticQuery(graphql`
         query AboutQuery {
-            avatar: file(absolutePath: { regex: "/profile-pic.jpg/" }) {
-                childImageSharp {
-                    fixed(width: 80, height: 80, quality: 100) {
-                        ...GatsbyImageSharpFixed
-                    }
-                }
-            }
             allProject {
                 nodes {
                     description
@@ -75,7 +68,7 @@ const AboutMe = ({ location }) => {
                 alignItems: 'center',
                 justifyContent: 'center',
                 marginTop: 50,
-                gap:10
+                gap: 10,
             },
             link: {
                 boxShadow: 'none',
@@ -84,7 +77,7 @@ const AboutMe = ({ location }) => {
             socialIcon: {
                 width: 30,
                 height: 30,
-                fill:'#000',
+                fill: '#000',
                 '&:hover': {
                     backgroundColor: '#ff0000',
                 },
@@ -126,13 +119,19 @@ const AboutMe = ({ location }) => {
         return (
             <div style={styles('socialLinksCont')}>
                 <Link to={github} style={styles('link')} target={'_blank'}>
-                    <FaGithub size={30} style={styles('socialIcon')} title={github}/>
+                    <FaGithub
+                        size={30}
+                        style={styles('socialIcon')}
+                        title={github}
+                    />
                 </Link>
                 <Link to={twitter} style={styles('link')} target={'_blank'}>
                     <FaTwitter size={30} style={styles('socialIcon')} />
                 </Link>
-                <Image
-                    fixed={data.avatar.childImageSharp.fixed}
+                <StaticImage
+                    src={'../images/profile-pic.jpg'}
+                    height={100}
+                    width={100}
                     alt={author.name}
                     style={{
                         borderRadius: `100%`,
