@@ -38,13 +38,16 @@ const tagsMap = {
     }
 }
 
+const Tags = ({ tags = [] }) => {
 
-const Tag = ({ tag }) => {
-    const Comp = tagsMap[tag]['icon'];
-    const label = tagsMap[tag]['label'];
-    if (!Comp) return null;
-    return (
-        <Comp size={30} title={label} style={{
+    const styles = {
+        root: {
+            display: 'flex',
+            alignItems: 'center',
+            flexDirection: 'row',
+            gap: 16,
+        },
+        icon: {
             width: 25,
             height: 25,
             fill: '#fff',
@@ -54,28 +57,20 @@ const Tag = ({ tag }) => {
                 fill: '#fff',
 
             }
-        }}
-        />
-    )
+        },
+    }
 
-}
+    const renderTag = (tag) => {
+        const Comp = tagsMap[tag]['icon'];
+        const label = tagsMap[tag]['label'];
+        if (!Comp) return null;
 
-const Tags = ({ tags = [] }) => {
+        <Comp key={tag} size={30} title={label} style={styles.icon} />
+    }
+
     return (
-        <div style={{ display: 'flex', alignItems: 'center', 'flexDirection': 'row', gap: 16 }}>
-            <span>Built with:</span>
-            {tags.map((tag, index) => <Tag key={index} tag={tag} />)}
-            {/* <FaNodeJs size={30} style={{
-                width: 30,
-                height: 30,
-                fill: '#fff',
-                color: '#fff',
-                '&:hover': {
-                    backgroundColor: '#fff',
-                    fill: '#fff',
-
-                }
-            }} /> */}
+        <div style={styles.root}>
+            {tags.map((tag) => renderTag(tag))}
         </div>
     );
 }

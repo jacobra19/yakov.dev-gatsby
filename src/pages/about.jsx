@@ -44,52 +44,56 @@ const AboutMe = ({ location }) => {
     const { author, title } = data.site.siteMetadata;
     const { twitter, github, linkedin, instagram } =
         data.site.siteMetadata.social;
-    const styles = (s) => {
-        const styles = {
-            root: {},
-            articleCont: {
-                fontSize: 18,
+    const styles = {
+        root: {},
+        articleCont: {
+            fontSize: 18,
+        },
+        header: {
+            display: 'flex',
+            marginTop: 30,
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            marginBottom: 30,
+        },
+        h1Text: {
+            margin: 0,
+        },
+        middleSection: {
+            margin: '10px 0px',
+        },
+        socialLinksCont: {
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            marginTop: 50,
+            gap: 10,
+        },
+        link: {
+            boxShadow: 'none',
+            margin: '0px 5px',
+        },
+        socialIcon: {
+            width: 30,
+            height: 30,
+            fill: '#000',
+            '&:hover': {
+                backgroundColor: '#ff0000',
             },
-            header: {
-                display: 'flex',
-                marginTop: 30,
-                alignItems: 'center',
-                justifyContent: 'space-between',
-                marginBottom: 30,
-            },
-            h1Text: {
-                margin: 0,
-            },
-            middleSection: {
-                margin: '10px 0px',
-            },
-            socialLinksCont: {
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                marginTop: 50,
-                gap: 10,
-            },
-            link: {
-                boxShadow: 'none',
-                margin: '0px 5px',
-            },
-            socialIcon: {
-                width: 30,
-                height: 30,
-                fill: '#000',
-                '&:hover': {
-                    backgroundColor: '#ff0000',
-                },
-            },
-        };
-        return styles[s];
+        },
+        staticImageComp: {
+            borderRadius: `100%`,
+            margin: '0px 15px',
+        },
+        staticImage: {
+            borderRadius: `50%`,
+        },
     };
 
     const renderHeader = (title) => {
         return (
-            <header style={styles('header')}>
-                <h1 style={styles('h1Text')}>{title}</h1>
+            <header style={styles.header}>
+                <h1 style={styles.h1Text}>{title}</h1>
             </header>
         );
     };
@@ -101,7 +105,7 @@ const AboutMe = ({ location }) => {
                     Hi! I'm Yakov Rakhamimov, a Frontend Web Developer from
                     Haifa, Israel.
                 </section>
-                <section style={styles('middleSection')}>
+                <section style={styles.middleSection}>
                     I have started this blog to document everything I learn and
                     simplify it for others who wish to understand better simple
                     and complex topics in the web development world. My
@@ -117,35 +121,26 @@ const AboutMe = ({ location }) => {
 
     const renderSocialLinks = () => {
         return (
-            <div style={styles('socialLinksCont')}>
-                <Link to={github} style={styles('link')} target={'_blank'}>
-                    <FaGithub
-                        size={30}
-                        style={styles('socialIcon')}
-                        title={github}
-                    />
+            <div style={styles.socialLinksCont}>
+                <Link to={github} style={styles.link} target={'_blank'}>
+                    <FaGithub size={30} style={styles.socialIcon} title={'GitHub'} />
                 </Link>
-                <Link to={twitter} style={styles('link')} target={'_blank'}>
-                    <FaTwitter size={30} style={styles('socialIcon')} />
+                <Link to={twitter} style={styles.link} target={'_blank'}>
+                    <FaTwitter size={30} style={styles.socialIcon} title={'Twitter'} />
                 </Link>
                 <StaticImage
                     src={'../images/profile-pic.jpg'}
                     height={100}
                     width={100}
                     alt={author.name}
-                    style={{
-                        borderRadius: `100%`,
-                        margin: '0px 15px',
-                    }}
-                    imgStyle={{
-                        borderRadius: `50%`,
-                    }}
+                    style={styles.staticImageComp}
+                    imgStyle={styles.staticImage}
                 />
-                <Link to={linkedin} style={styles('link')} target={'_blank'}>
-                    <FaLinkedin size={30} style={styles('socialIcon')} />
+                <Link to={linkedin} style={styles.link} target={'_blank'}>
+                    <FaLinkedin size={30} style={styles.socialIcon} title={'Linkedin'} />
                 </Link>
-                <Link to={instagram} style={styles('link')} target={'_blank'}>
-                    <FaInstagram size={30} style={styles('socialIcon')} />
+                <Link to={instagram} style={styles.link} target={'_blank'}>
+                    <FaInstagram size={30} style={styles.socialIcon} title={'Instagram'} />
                 </Link>
             </div>
         );
@@ -154,7 +149,7 @@ const AboutMe = ({ location }) => {
     return (
         <Layout location={location} title={title}>
             <SEO title="about" />
-            <article style={styles('articleCont')}>
+            <article style={styles.articleCont}>
                 {renderHeader('About Me')}
                 {renderContent()}
             </article>

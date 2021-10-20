@@ -32,43 +32,44 @@ const Projects = ({ location }) => {
     `);
 
     const { title } = data.site.siteMetadata;
-    const styles = (s) => {
-        const styles = {
-            root: {},
-            articleCont: {
-                fontSize: 18,
-            },
-            header: {
-                display: 'flex',
-                marginTop: 30,
-                alignItems: 'center',
-                justifyContent: 'space-between',
-                marginBottom: 30,
-            },
-            h1Text: {
-                margin: 0,
-            },
-            link: {
-                boxShadow: 'none',
-                margin: '0px 5px',
-            },
-        };
-        return styles[s];
+    const styles = {
+        root: {},
+        articleCont: {
+            fontSize: 18,
+        },
+        header: {
+            display: 'flex',
+            marginTop: 30,
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            marginBottom: 30,
+        },
+        h1Text: {
+            margin: 0,
+        },
+        link: {
+            boxShadow: 'none',
+            margin: '0px 5px',
+        },
+        projectsContainer: {
+            display: 'flex',
+            flexDirection: 'column',
+            gap: 16
+        },
+
     };
 
     const renderHeader = (title) => {
         return (
-            <header style={styles('header')}>
-                <h1 style={styles('h1Text')}>{title}</h1>
+            <header style={styles.header}>
+                <h1 style={styles.h1Text}>{title}</h1>
             </header>
         );
     };
 
     const renderProjects = () => {
         return (
-            <section
-                style={{ display: 'flex', flexDirection: 'column', gap: 16 }}
-            >
+            <section style={styles.projectsContainer}>
                 {data.allProject.nodes.map((node) => {
                     return <ProjectCard key={node.id} {...node} />;
                 })}
@@ -79,7 +80,7 @@ const Projects = ({ location }) => {
     return (
         <Layout location={location} title={title}>
             <SEO title="projects" />
-            <article style={styles('articleCont')}>
+            <article style={styles.articleCont}>
                 {renderHeader('Projects')}
                 {renderProjects()}
             </article>
