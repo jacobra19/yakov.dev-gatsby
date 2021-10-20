@@ -6,13 +6,13 @@ import { rhythm } from '../../utils/typography';
 
 const NAV_ITEMS = [
     {
+        label: 'projects',
+        to: '/projects'
+    },
+    {
         label: 'about',
         to: '/about'
     },
-    {
-        label: 'projects',
-        to: '/projects'
-    }
 ]
 
 const AppHeader = ({ isRoot, title }) => {
