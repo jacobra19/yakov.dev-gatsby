@@ -19,11 +19,18 @@ module.exports = {
         'gatsby-plugin-breakpoints',
         'gatsby-plugin-webpack-bundle-analyser-v2',
         `gatsby-transformer-sharp`,
-        `gatsby-plugin-sharp`,
         `gatsby-plugin-sitemap`,
         `gatsby-plugin-feed`,
         `gatsby-plugin-react-helmet`,
         `gatsby-plugin-image`,
+        {
+            resolve: `gatsby-plugin-sharp`,
+            options: {
+                defaults: {
+                    quality: 100,
+                },
+            },
+        },
         {
             resolve: `gatsby-plugin-react-helmet-canonical-urls`,
             options: {
