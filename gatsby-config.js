@@ -23,6 +23,7 @@ module.exports = {
         `gatsby-plugin-sitemap`,
         `gatsby-plugin-feed`,
         `gatsby-plugin-react-helmet`,
+        `gatsby-plugin-image`,
         {
             resolve: `gatsby-plugin-react-helmet-canonical-urls`,
             options: {
@@ -80,8 +81,7 @@ module.exports = {
                 background_color: `#ffffff`,
                 theme_color: `#663399`,
                 display: `standalone`,
-                icon: `content/assets/code-icon.png`,
-                crossOrigin: `use-credentials`,
+                icon: `src/images/code-icon.png`,
             },
         },
         {
