@@ -60,7 +60,7 @@ const Tags = ({ tags = [] }) => {
         },
     }
 
-    // test commin gpg
+    // test commin gpg 2
     const renderTag = (tag) => {
         const Comp = tagsMap[tag]['icon'];
         const label = tagsMap[tag]['label'];
