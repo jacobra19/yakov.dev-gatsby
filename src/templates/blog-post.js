@@ -1,15 +1,44 @@
 import React from 'react';
 import { Link, graphql } from 'gatsby';
 
-import Bio from '../components/bio';
-import Layout from '../components/layout';
-import SEO from '../components/seo';
+import { Bio, Layout, SEO } from '@components';
 import { rhythm, scale } from '../utils/typography';
 
 const BlogPostTemplate = ({ data, pageContext, location }) => {
     const post = data.markdownRemark;
     const siteTitle = data.site.siteMetadata.title;
     const { previous, next } = pageContext;
+
+    const styles = {
+        headerTitle: {
+            marginTop: rhythm(1),
+            marginBottom: 0,
+            fontFamily: 'Comfortaa, cursive',
+            fontWeight: 600,
+        },
+        headerParagraph: {
+            ...scale(-1 / 5),
+            display: `block`,
+            marginBottom: rhythm(1),
+            fontFamily: 'Comfortaa, cursive',
+        },
+        postContent: {
+            fontFamily: 'Comfortaa, cursive',
+            h2: {
+                fontFamily: 'Comfortaa, cursive',
+            },
+        },
+        postHR: {
+            marginBottom: rhythm(1),
+        },
+        postsNav: {
+            display: `flex`,
+            flexWrap: `wrap`,
+            justifyContent: `space-between`,
+            listStyle: `none`,
+            padding: 0,
+        },
+    };
 
     return (
         <Layout location={location} title={siteTitle}>
@@ -19,56 +48,23 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
             />
             <article>
                 <header>
-                    <h1
-                        style={{
-                            marginTop: rhythm(1),
-                            marginBottom: 0,
-                            fontFamily: 'Comfortaa, cursive',
-                            fontWeight: 600,
-                        }}
-                    >
-                        {post.frontmatter.title}
-                    </h1>
-                    <p
-                        style={{
-                            ...scale(-1 / 5),
-                            display: `block`,
-                            marginBottom: rhythm(1),
-                            fontFamily: 'Comfortaa, cursive',
-                        }}
-                    >
+                    <h1 style={styles.headerTitle}>{post.frontmatter.title}</h1>
+                    <p style={styles.headerParagraph}>
                         {post.frontmatter.date}
                     </p>
                 </header>
                 <section
-                    style={{
-                        fontFamily: 'Comfortaa, cursive',
-                        h2: {
-                            fontFamily: 'Comfortaa, cursive',
-                        },
-                    }}
+                    style={styles.postContent}
                     dangerouslySetInnerHTML={{ __html: post.html }}
                 />
-                <hr
-                    style={{
-                        marginBottom: rhythm(1),
-                    }}
-                />
+                <hr style={styles.postHR} />
                 <footer>
                     <Bio />
                 </footer>
             </article>
 
             <nav>
-                <ul
-                    style={{
-                        display: `flex`,
-                        flexWrap: `wrap`,
-                        justifyContent: `space-between`,
-                        listStyle: `none`,
-                        padding: 0,
-                    }}
-                >
+                <ul style={styles.postsNav}>
                     <li>
                         {previous && (
                             <Link to={previous.fields.slug} rel="prev">

@@ -1,10 +1,7 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 
-import Bio from '../components/bio';
-import Layout from '../components/layout';
-import SEO from '../components/seo';
-import BlogPostCard from '../components/blog-post-card';
+import { Bio, SEO, BlogPostCard, Layout } from '@components';
 
 const BlogIndex = ({ data, location }) => {
     const siteTitle = data.site.siteMetadata.title;
