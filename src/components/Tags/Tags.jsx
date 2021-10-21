@@ -65,12 +65,12 @@ const Tags = ({ tags = [] }) => {
         const label = tagsMap[tag]['label'];
         if (!Comp) return null;
 
-        <Comp key={tag} size={30} title={label} style={styles.icon} />
+        return <Comp key={tag} size={30} title={label} style={styles.icon} />
     }
 
     return (
         <div style={styles.root}>
-            {tags.map((tag) => renderTag(tag))}
+            {tags.map(renderTag)}
         </div>
     );
 }
